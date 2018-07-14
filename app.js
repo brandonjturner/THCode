@@ -8,17 +8,15 @@ $("#add-strain-btn").on("click", function(event) {
     headers: {
     },
   }).then(function(response) {
-    console.log(response);
     addNewRow(response.data, strainName);
   });
 });
 function addNewRow (data, strainName) {
-  console.log(data[0]);
   var img = data[0].image;
-  var newRow = $("<tr>").append(
+  var newRow = $("<tr>").prepend(
     $("<td>").text(strainName),
     $("<td>").text(data[0].genetics.names),
     $("<td>").append($('<img>').attr('src', img))
   );
-  $("#strain-table > tbody").append(newRow);
+  $("#strain-table > tbody").prepend(newRow);
 }
