@@ -9,11 +9,10 @@ $("#add-strain-btn").on("click", function(event) {
     },
   }).then(function(response) {
     console.log(response);
-    addNewRow(response.data, strainName, 1, 2, 3);
+    addNewRow(response.data, strainName);
   });
 });
-
-function addNewRow (data, strainName, moreargs, anotherone, thiojwefoij) {
+function addNewRow (data, strainName) {
   console.log(data[0]);
   var img = data[0].image;
   var newRow = $("<tr>").append(
